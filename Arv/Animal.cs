@@ -22,7 +22,7 @@ namespace Arv
     class Dog : Animal
     {
         string sound = "Ljud från hunden";
-        public string color;
+        string color;
         string proplist = "weight , name , age , sound , color";
         
         public override string DoSound()
@@ -44,7 +44,7 @@ namespace Arv
     class Horse : Animal
     {
         String sound = "Ljud från hästen";
-        public string color;
+        string color;
         string proplist = "weight , name , age , sound , color";
         public override string DoSound()
         {
@@ -60,7 +60,7 @@ namespace Arv
     class Hedegehog : Animal
     {
         String sound = "Ljud från igelkotten";
-        public string teeth;
+        string teeth;
         string proplist = "weight , name , age , sound , teeth";
         public override string DoSound()
         {
@@ -100,7 +100,7 @@ namespace Arv
 
     class Flamingo : Bird
     {
-        public string color;
+        string color;
         string sound = "Ljud från Flamingon";
         public override string DoSound()
         {
@@ -122,7 +122,7 @@ namespace Arv
     class Wolf : Animal
     {
         string sound ="Ljud från Vargen";
-        public string country;
+        string country;
         string proplist = "weight , name , age , sound , country";
         public override string DoSound()
         {
@@ -147,7 +147,7 @@ namespace Arv
     class Worm : Animal
     {
         string sound = "Ljud från masken";
-        public string ears;
+        string ears;
         string proplist = "weight , name , age , sound , ears";
         public override string DoSound()
         {

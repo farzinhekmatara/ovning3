@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Arv
 {
     internal abstract class Animal
@@ -11,10 +12,17 @@ namespace Arv
         public int weight;
         public string name;
         public int age;
-  
+
         public Animal()
         {
-        }      
+        }
+
+        public Animal(int age , int weight , string name)
+        {
+            this.age = age; 
+            this.weight = weight;
+            this.name = name;
+        }
         public abstract string DoSound();
         public abstract string Status();
     }
@@ -25,6 +33,17 @@ namespace Arv
         string color;
         string proplist = "weight , name , age , sound , color";
         
+        public Dog()
+        {
+
+        }
+        public Dog(string color , int age, int weight, string name) : base(age , weight , name)
+        {
+            this.age = age;
+            this.weight = weight;
+            this.name = name;
+            this.color = color;
+        }
         public override string DoSound()
         {
             return sound;            
@@ -143,6 +162,8 @@ namespace Arv
             return proplist;
         }
     }
+
+
 
     class Worm : Animal
     {

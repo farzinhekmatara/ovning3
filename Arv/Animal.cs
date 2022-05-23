@@ -91,7 +91,7 @@ namespace Arv
 
     class Pelican : Bird
     {
-       string sound = "";
+       string sound = "Ljud från Pelikanen";
        public override string DoSound()
         {
             return sound;
@@ -101,7 +101,7 @@ namespace Arv
     class Flamingo : Bird
     {
         string color;
-        string sound = "";
+        string sound = "Ljud från Flamingon";
         public override string DoSound()
         {
             return sound;
@@ -111,7 +111,7 @@ namespace Arv
 
     class Swan : Bird
     {
-        string sound = "";
+        string sound = "Ljud från Swanen";
         public override string DoSound()
         {
             return sound;
@@ -121,7 +121,7 @@ namespace Arv
 
     class Wolf : Animal
     {
-        string sound ;
+        string sound ="Ljud från Vargen";
         string country;
         string proplist = "weight , name , age , sound , country";
         public override string DoSound()

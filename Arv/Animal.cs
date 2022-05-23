@@ -22,7 +22,7 @@ namespace Arv
     class Dog : Animal
     {
         string sound = "Ljud från hunden";
-        string color = "Black";
+        public string color;
         string proplist = "weight , name , age , sound , color";
         
         public override string DoSound()
@@ -44,7 +44,7 @@ namespace Arv
     class Horse : Animal
     {
         String sound = "Ljud från hästen";
-        string color="";
+        public string color;
         string proplist = "weight , name , age , sound , color";
         public override string DoSound()
         {
@@ -60,7 +60,7 @@ namespace Arv
     class Hedegehog : Animal
     {
         String sound = "Ljud från igelkotten";
-        string teeth;
+        public string teeth;
         string proplist = "weight , name , age , sound , teeth";
         public override string DoSound()
         {
@@ -76,7 +76,7 @@ namespace Arv
     class Bird : Animal
     {
         String sound = "Ljud från fågeln";
-        string eyes;
+        public string eyes;
         string proplist = "weight , name , age , sound , eyes";
         public override string DoSound()
         {
@@ -100,7 +100,7 @@ namespace Arv
 
     class Flamingo : Bird
     {
-        string color;
+        public string color;
         string sound = "Ljud från Flamingon";
         public override string DoSound()
         {
@@ -122,7 +122,7 @@ namespace Arv
     class Wolf : Animal
     {
         string sound ="Ljud från Vargen";
-        string country;
+        public string country;
         string proplist = "weight , name , age , sound , country";
         public override string DoSound()
         {
@@ -137,7 +137,7 @@ namespace Arv
 
     class Wolfman : Wolf
     {
-        string proplist = "weight , name , age , sound , country";
+        string proplist = "weight , name , age,sound, country";
         public override string Status()
         {
             return proplist;
@@ -146,8 +146,8 @@ namespace Arv
 
     class Worm : Animal
     {
-        string sound = "";
-        string ears;
+        string sound = "Ljud från masken";
+        public string ears;
         string proplist = "weight , name , age , sound , ears";
         public override string DoSound()
         {

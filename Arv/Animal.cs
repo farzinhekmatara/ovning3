@@ -38,10 +38,7 @@ namespace Arv
 
         }
         public Dog(string color , int age, int weight, string name) : base(age , weight , name)
-        {
-            this.age = age;
-            this.weight = weight;
-            this.name = name;
+        {          
             this.color = color;
         }
         public override string DoSound()

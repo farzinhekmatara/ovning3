@@ -1,5 +1,4 @@
 ﻿using Arv;
-using Arv.Helper;
 //3.3
 Dog dog = new Dog();
 Console.WriteLine("Hunden låter som: "+dog.DoSound());
@@ -25,12 +24,15 @@ foreach (Animal anm in anmimals) {
     {
         try
         {
-            IPerson person = new Wolfman();            
+            //IPerson person = new Wolfman();            
+            IPerson person = (IPerson)anm;
             Console.WriteLine(person.Talk());
         }
         catch (Exception e)
         {
-
+            string? stackTrace = e.StackTrace;
+            if (stackTrace != null)
+                Console.WriteLine(stackTrace);
         }
     }
 }

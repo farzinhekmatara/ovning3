@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Arv.Helper
 {
-    internal interface IPerson
+    internal class Wolfman1 : IPerson
     {
-        public string Talk();
+        public string Talk()
+        {
+            return "Wolfman pratar";
+        }
     }
 }

@@ -150,13 +150,22 @@ namespace Arv
             return proplist;
         }
     }
-
-    class Wolfman : Wolf
+    public interface IPerson
+    {
+        public string Talk();
+    }
+    class Wolfman : Wolf , IPerson
+   
     {
         string proplist = "weight , name , age,sound, country";
         public override string Status()
         {
             return proplist;
+        }
+
+        public string Talk()
+        {
+            return "Wolfman talar";
         }
     }
 

@@ -13,8 +13,7 @@ anmimals.Add(new Dog());
 anmimals.Add(new Horse());
 anmimals.Add(new Wolf());
 anmimals.Add(new Worm());
-anmimals.Add(new Arv.Wolfman());
-
+anmimals.Add(new Wolfman());
 
 
 
@@ -22,11 +21,11 @@ anmimals.Add(new Arv.Wolfman());
 
 foreach (Animal anm in anmimals) { 
     Console.WriteLine(anm.Status());
-    if( anm is Wolf)
+    if( anm is Wolfman)
     {
         try
         {
-            IPerson person = new Arv.Helper.Wolfman();            
+            IPerson person = new Wolfman();            
             Console.WriteLine(person.Talk());
         }
         catch (Exception e)

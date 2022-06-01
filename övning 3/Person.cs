@@ -1,37 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-internal class Person
+﻿internal class Person
 {
     private string fName;
     private string lName;
     private double height;
     private double weight;
     private int age;
-  
 
-    public Person(int age , string fName , string lname , double height, double weight)
+
+    public Person(int age, string fName, string lname, double height, double weight)
     {
         this.age = age;
-        this.fName = fName;
+        FirstName = fName;
         this.lName = lname;
         this.height = height;
         this.weight = weight;
     }
 
-    public void SetfName(string fname)
+    // var person = new Person(12, "David" ,..."")
+
+
+    public string FirstName
     {
-        this.fName = fname;
+        get => fName;
+        set
+        {
+            if (value.Length > 2 && value.Length < 10)
+            {
+                fName = value;
+            }
+            else
+            {
+                throw new ArgumentException("First name must be between 2 and 10 characters.");
+            }
+        }
+
     }
 
-    public string GetfName()
-    {
-        return this.fName;
-    }
 
     public void setlName(string lName)
     {

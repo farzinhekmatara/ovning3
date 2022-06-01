@@ -1,67 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace Arv
+﻿namespace Arv
 {
     internal abstract class Animal
     {
-        public int weight;
-        public string name;
-        public int age;
 
-        public Animal()
-        {
-        }
+        public int Weight { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
-        public Animal(int age , int weight , string name)
+
+        public Animal(int age, int weight, string name)
         {
-            this.age = age; 
-            this.weight = weight;
-            this.name = name;
+            Age = age;
+            Weight = weight;
+            Name = name;
         }
         public abstract string DoSound();
-        public abstract string Status();
+        public virtual string Status()
+        {
+            return $"Name: {Name}, Age: {Age}, Weight: {Weight}, ";
+        }
     }
 
     class Dog : Animal
     {
-        string sound = "Ljud från hunden";
-        string color;
-        string proplist = "weight , name , age , sound , color";
-        
-        public Dog()
-        {
+        string sound = "*WoffWoff*";
+        public string Color { get; set; }
 
-        }
-        public Dog(string color , int age, int weight, string name) : base(age , weight , name)
-        {          
-            this.color = color;
+
+        public Dog(string color, int age, int weight, string name) : base(age, weight, name)
+        {
+            Color = color;
         }
         public override string DoSound()
         {
-            return sound;            
+            return sound;
         }
 
-        public int GetAge()
+
+        public override string Status()
         {
-            return age;
-        }
-
-        public override string Status() {
-            return proplist;
+            return base.Status() + $"Color: {Color}.";
         }
 
     }
 
-    class Horse : Animal
+    class Horse : Animal, IPerson
     {
-        String sound = "Ljud från hästen";
-        string color;
-        string proplist = "weight , name , age , sound , color";
+        string sound = "*gnägggnägg*";
+
+        public string Breed { get; set; }
+
+        public Horse(int age, int weight, string name, string breed) : base(age, weight, name)
+        {
+            Breed = breed;
+        }
+
         public override string DoSound()
         {
             return sound;
@@ -69,77 +62,88 @@ namespace Arv
 
         public override string Status()
         {
-            return proplist;
+            return base.Status() + $"Breed: {Breed}.";
+        }
+
+        public string Talk()
+        {
+            return "Jag är en Kentaur!";
         }
     }
 
-    class Hedegehog : Animal
-    {
-        String sound = "Ljud från igelkotten";
-        string teeth;
-        string proplist = "weight , name , age , sound , teeth";
-        public override string DoSound()
-        {
-            return sound;
-        }
+    //class Hedegehog : Animal
+    //{
+    //    String sound = "Ljud från igelkotten";
+    //    string teeth;
+    //    string proplist = "weight , name , age , sound , teeth";
+    //    public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
 
-        public override string Status()
-        {
-            return proplist;
-        }
-    }
+    //    public override string Status()
+    //    {
+    //        return proplist;
+    //    }
+    //}
 
-    class Bird : Animal
-    {
-        String sound = "Ljud från fågeln";
-        public string eyes;
-        string proplist = "weight , name , age , sound , eyes";
-        public override string DoSound()
-        {
-            return sound;
-        }
+    //class Bird : Animal
+    //{
+    //    String sound = "Ljud från fågeln";
+    //    public string eyes;
+    //    string proplist = "weight , name , age , sound , eyes";
+    //    public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
 
-        public override string Status()
-        {
-            return proplist;
-        }
-    }
+    //    public override string Status()
+    //    {
+    //        return proplist;
+    //    }
+    //}
 
-    class Pelican : Bird
-    {
-       string sound = "Ljud från Pelikanen";
-       public override string DoSound()
-        {
-            return sound;
-        }
-    }
+    //class Pelican : Bird
+    //{
+    //   string sound = "Ljud från Pelikanen";
+    //   public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
+    //}
 
-    class Flamingo : Bird
-    {
-        string color;
-        string sound = "Ljud från Flamingon";
-        public override string DoSound()
-        {
-            return sound;
-        }
-    }
+    //class Flamingo : Bird
+    //{
+    //    string color;
+    //    string sound = "Ljud från Flamingon";
+    //    public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
+    //}
 
 
-    class Swan : Bird
-    {
-        string sound = "Ljud från Swanen";
-        public override string DoSound()
-        {
-            return sound;
-        }
-    }
+    //class Swan : Bird
+    //{
+    //    string sound = "Ljud från Swanen";
+    //    public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
+    //}
 
 
     class Wolf : Animal
     {
-        string sound ="Ljud från Vargen";
-        string country;
-        string proplist = "weight , name , age , sound , country";
+        string sound = "*yl!*";
+        public string Country { get; set; }
+
+
+        public Wolf(int age, int weight, string name, string country) : base(age, weight, name)
+        {
+            Country = country;
+        }
+
         public override string DoSound()
         {
             return sound;
@@ -147,21 +151,20 @@ namespace Arv
 
         public override string Status()
         {
-            return proplist;
+            return base.Status() + $"Country of Origin: {Country}.";
         }
     }
     public interface IPerson
     {
         public string Talk();
     }
-    class Wolfman : Wolf , IPerson
-   
+    class Wolfman : Wolf, IPerson
     {
-        string proplist = "weight , name , age,sound, country";
-        public override string Status()
+
+        public Wolfman(int age, int weight, string name, string country) : base(age, weight, name, country)
         {
-            return proplist;
         }
+
 
         public string Talk()
         {
@@ -171,19 +174,19 @@ namespace Arv
 
 
 
-    class Worm : Animal
-    {
-        string sound = "Ljud från masken";
-        string ears;
-        string proplist = "weight , name , age , sound , ears";
-        public override string DoSound()
-        {
-            return sound;
-        }
+    //class Worm : Animal
+    //{
+    //    string sound = "Ljud från masken";
+    //    string ears;
+    //    string proplist = "weight , name , age , sound , ears";
+    //    public override string DoSound()
+    //    {
+    //        return sound;
+    //    }
 
-        public override string Status()
-        {
-            return proplist;
-        }
-    }
+    //    public override string Status()
+    //    {
+    //        return proplist;
+    //    }
+    //}
 }
